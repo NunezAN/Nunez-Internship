@@ -16684,6 +16684,12 @@ img {
   animation: shimmer 2s infinite;
   content: "";
 }
+.skeletonSubName{
+  width:50px;
+}
+.skeletonName{
+  width: 100px;
+}
 @-webkit-keyframes shimmer {
   100% {
     transform: translateX(100%);
