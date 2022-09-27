@@ -16730,6 +16730,21 @@ img {
 /* ================================================== */
 .slick-prev:before,
 .slick-next:before {
-  color: black!important;
+  color: black !important;
+  font-size:25px !important;
 }
+.slick-prev
+{
+    left: -20px !important;
+    padding-left:5px !important;
+}
+.slick-next
+{
+    right: -10px !important;
+    padding-right:5px !important;
+}
+.slick-slider .slick-slide {
+  padding: 0 5px !important;
+}
+
 
