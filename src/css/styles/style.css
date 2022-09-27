@@ -8084,6 +8084,7 @@ a.btn-right {
 
 /* ================================================== */
 
+
 header,
 de_tab .de_nav li span,
 .feature-box-small-icon i,
@@ -16721,3 +16722,14 @@ img {
 .no-cursor {
   cursor: not-allowed;
 }
+
+/* ================================================== */
+
+/* slick carousel */
+
+/* ================================================== */
+.slick-prev:before,
+.slick-next:before {
+  color: black!important;
+}
+
