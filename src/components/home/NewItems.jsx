@@ -12,7 +12,9 @@ import "slick-carousel/slick/slick-theme.css";
 const NewItems = () => {
   const [newItemsData, setNewItemsData] = useState([]); //state to store fetched new items data
   const [isLoading, setIsLoading] = useState(false); //state to store loading state
-
+  
+  const [timeNow, setTimeNow] = useState(Date.now); //state to store the time 
+  
   var settings = {
     //variables for the carousel animations
     dots: false,
@@ -62,9 +64,27 @@ const NewItems = () => {
       );
       setNewItemsData(fetchedData.data);
       setIsLoading(false);
+      console.log(newItemsData);
     }
     getNewItemsData();
+
+    //interval to update time every second 
+    const interval = setInterval(() => setTimeNow(Date.now()), 1000);
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
+
+  //function to calculate and display remaining time
+  function updateTimer(expiryDate) {
+    const timer = new Date(expiryDate - timeNow);
+    const timerMinutes = timer.getMinutes();
+    const timerHours = timer.getHours();
+    const timerSeconds = timer.getSeconds();
+    return `${timerHours < 10 ? "0" + timerHours : timerHours}h ${
+      timerMinutes < 10 ? "0" + timerMinutes : timerMinutes
+    }m ${timerSeconds < 10 ? "0" + timerSeconds : timerSeconds}s`;
+  }
 
   return (
     <section id="section-items" className="no-bottom">
@@ -123,7 +143,11 @@ const NewItems = () => {
                           <i className="fa fa-check"></i>
                         </Link>
                       </div>
-                      <div className="de_countdown">5h 30m 32s</div>
+                      {item.expiryDate && (
+                        <div className="de_countdown">
+                          {updateTimer(item.expiryDate)}
+                        </div>
+                      )}
 
                       <div className="nft__item_wrap">
                         <div className="nft__item_extra">
