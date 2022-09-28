@@ -64,7 +64,6 @@ const NewItems = () => {
       );
       setNewItemsData(fetchedData.data);
       setIsLoading(false);
-      console.log(newItemsData);
     }
     getNewItemsData();
 
