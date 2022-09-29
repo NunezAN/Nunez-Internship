@@ -12,9 +12,9 @@ import "slick-carousel/slick/slick-theme.css";
 const NewItems = () => {
   const [newItemsData, setNewItemsData] = useState([]); //state to store fetched new items data
   const [isLoading, setIsLoading] = useState(false); //state to store loading state
-  
-  const [timeNow, setTimeNow] = useState(Date.now); //state to store the time 
-  
+
+  const [timeNow, setTimeNow] = useState(Date.now); //state to store the time
+
   var settings = {
     //variables for the carousel animations
     dots: false,
@@ -67,7 +67,7 @@ const NewItems = () => {
     }
     getNewItemsData();
 
-    //interval to update time every second 
+    //interval to update time every second
     const interval = setInterval(() => setTimeNow(Date.now()), 1000);
     return () => {
       clearInterval(interval);
