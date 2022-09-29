@@ -9,6 +9,7 @@ import ExploreItemCard from "../UI/ExploreItemCard.jsx";
 const ExploreItems = () => {
   const [exploreItems, setExploreItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [showCards, setShowCards] = useState(8);
   useEffect(() => {
     async function fetchExploreItems() {
       setIsLoading(true);
@@ -64,17 +65,23 @@ const ExploreItems = () => {
               </div>
             </div>
           ))
-        : exploreItems.slice(0, 8).map((item) => (
-            <ExploreItemCard
-              key={item.id}
-              item={item}
-            ></ExploreItemCard>
-          ))}
-      <div className="col-md-12 text-center">
-        <Link to="" id="loadmore" className="btn-main lead">
-          Load more
-        </Link>
-      </div>
+        : exploreItems
+            .slice(0, showCards)
+            .map((item) => (
+              <ExploreItemCard key={item.id} item={item}></ExploreItemCard>
+            ))}
+      {showCards < exploreItems.length &&
+        <div className="col-md-12 text-center">
+          <Link
+            to=""
+            id="loadmore"
+            className="btn-main lead"
+            onClick={() => setShowCards(showCards + 4)}
+          >
+            Load more
+          </Link>
+        </div>
+      }
     </>
   );
 };
