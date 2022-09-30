@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import CountdownTimer from "./CountdownTimer";
 
-const ExploreItemCard = ({item, carousel}) => {
+const ExploreItemCard = ({item, carousel, authorImage, authorId}) => {
   return (
     <div
       key={item.id}
@@ -12,11 +12,11 @@ const ExploreItemCard = ({item, carousel}) => {
       <div className="nft__item">
         <div className="author_list_pp">
           <Link
-            to={`/author/${item.authorId}`}
+            to={`/author/${item.authorId || authorId}`}
             data-bs-toggle="tooltip"
             data-bs-placement="top"
           >
-            <img className="lazy" src={item.authorImage} alt="" />
+            <img className="lazy" src={item.authorImage || authorImage} alt="" />
             <i className="fa fa-check"></i>
           </Link>
         </div>
