@@ -6,18 +6,22 @@ import AuthorImage from "../images/author_thumbnail.jpg";
 import axios from "axios";
 
 const Author = () => {
-  const { id } = useParams();         //link param to get id 
+  const { id } = useParams(); //link param to get id
   const [authorData, setAuthorData] = useState([]); //state to store fetched author data
+  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(()=>{
+  useEffect(() => {
     //function to fetch author data on mount
-    async function fetchAuthorData(){
-      const fetchedData = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${id}`)
-      console.log(fetchedData.data);
+    async function fetchAuthorData() {
+      setIsLoading(true);
+      const fetchedData = await axios.get(
+        `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${id}`
+      );
       setAuthorData(fetchedData.data);
+      setIsLoading(false);
     }
     fetchAuthorData();
-  },[])
+  }, []);
   return (
     <div id="wrapper">
       <div className="no-bottom no-top" id="content">
@@ -44,7 +48,9 @@ const Author = () => {
                       <div className="profile_name">
                         <h4>
                           {authorData.authorName}
-                          <span className="profile_username">@{authorData.tag}</span>
+                          <span className="profile_username">
+                            @{authorData.tag}
+                          </span>
                           <span id="wallet" className="profile_wallet">
                             {authorData.address}
                           </span>
@@ -57,7 +63,9 @@ const Author = () => {
                   </div>
                   <div className="profile_follow de-flex">
                     <div className="de-flex-col">
-                      <div className="profile_follower">{authorData.followers} followers</div>
+                      <div className="profile_follower">
+                        {authorData.followers} followers
+                      </div>
                       <Link to="#" className="btn-main">
                         Follow
                       </Link>
@@ -68,7 +76,11 @@ const Author = () => {
 
               <div className="col-md-12">
                 <div className="de_tab tab_simple">
-                  <AuthorItems />
+                  {isLoading ? (
+                    "Loading..."
+                  ) : (
+                    <AuthorItems author={authorData} />
+                  )}
                 </div>
               </div>
             </div>
