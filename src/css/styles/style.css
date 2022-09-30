@@ -8084,7 +8084,6 @@ a.btn-right {
 
 /* ================================================== */
 
-
 header,
 de_tab .de_nav li span,
 .feature-box-small-icon i,
@@ -16684,26 +16683,38 @@ img {
   animation: shimmer 2s infinite;
   content: "";
 }
-.skeletonSubName{
-  width:50px;
+.skeletonSubName {
+  width: 50px;
 }
-.skeletonName{
+.skeletonName {
   width: 100px;
 }
-.skeletonLike{
-  width:40px;
+.skeletonName--long {
+  width: 200px;
+}
+.skeletonLike {
+  width: 40px;
   position: absolute;
   bottom: -40px;
-  right:0;
+  right: 0;
 }
-.skeletonProfile{
-  width:100%;
-  height:50px;
-  border-radius:50%;
+.skeletonProfile {
+  width: 100%;
+  height: 50px;
+  border-radius: 50%;
 }
-.skeletonNftImage{
+.skeletonProfile--author {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.skeletonNftImage {
   width: 100%;
   height: 100%;
+}
+.skeleton--button {
+  width: 150px;
+  height: 40px;
 }
 @-webkit-keyframes shimmer {
   100% {
@@ -16752,20 +16763,16 @@ img {
 .slick-prev:before,
 .slick-next:before {
   color: black !important;
-  font-size:25px !important;
+  font-size: 25px !important;
 }
-.slick-prev
-{
-    left: -20px !important;
-    padding-left:5px !important;
+.slick-prev {
+  left: -20px !important;
+  padding-left: 5px !important;
 }
-.slick-next
-{
-    right: -10px !important;
-    padding-right:5px !important;
+.slick-next {
+  right: -10px !important;
+  padding-right: 5px !important;
 }
 .slick-slider .slick-slide {
   padding: 0 5px !important;
 }
-
-
