@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
 import axios from "axios";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const TopSellers = () => {
   const [topSellers, setTopSellers] = useState([]); //state to store top sellers data
@@ -24,11 +26,16 @@ const TopSellers = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>Top Sellers</h2>
+              <h2 data-aos="fade">Top Sellers</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <div className="col-md-12">
+          <div
+            data-aos="fade-up"
+            data-aos-delay="250"
+            data-aos-duration="1000"
+            className="col-md-12"
+          >
             <ol className="author_list">
               {isLoading
                 ? new Array(12).fill(0).map((_, index) => (

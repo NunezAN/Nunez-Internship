@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
-import nftImage from "../../images/nftImage.jpg";
 import axios from "axios";
 import { useEffect } from "react";
 import ExploreItemCard from "../UI/ExploreItemCard.jsx";
 import SkeletonExploreItemCard from "../UI/SkeletonExploreItemCard";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const ExploreItems = () => {
   const [exploreItems, setExploreItems] = useState([]);
@@ -75,6 +76,8 @@ const ExploreItems = () => {
       {showCards < exploreItems.length && (
         <div className="col-md-12 text-center">
           <Link
+            data-aos="fade"
+            data-aos-duration="1000"
             to=""
             id="loadmore"
             className="btn-main lead"

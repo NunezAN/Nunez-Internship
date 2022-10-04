@@ -6,6 +6,9 @@ import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const HotCollections = () => {
   const [hotCollectionsData, setHotCollectionsData] = useState([]); //state to store fetched nft data
@@ -70,7 +73,7 @@ const HotCollections = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>Hot Collections</h2>
+              <h2 data-aos="fade">Hot Collections</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>

@@ -1,7 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
-import nftImage from "../../images/nftImage.jpg";
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -9,6 +6,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ExploreItemCard from "../UI/ExploreItemCard";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const NewItems = () => {
   const [newItemsData, setNewItemsData] = useState([]); //state to store fetched new items data
@@ -92,7 +92,7 @@ const NewItems = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>New Items</h2>
+              <h2 data-aos="fade">New Items</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
